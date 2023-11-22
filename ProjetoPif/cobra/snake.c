@@ -10,7 +10,7 @@
 int *x;
 int *y;
 int sair = 0;
-int macaX = -1, macaY;
+int macaX = 0, macaY = 0;
 int cauda = 0, cabeca = 0;
 int fimDoJogo = 0;
 int direcaox = 1, direcaoy = 0;
