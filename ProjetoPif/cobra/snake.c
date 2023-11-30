@@ -47,13 +47,7 @@ void iniciarJogo() {
       }
     }
     
-    for (int i = cauda; i != cabeca; i = (i + 1) % 1000) {
-      matriz[y[i]][x[i]] = 'o';
-    }
-    matriz[y[cabeca]][x[cabeca]] = 'O';
-  if (macaX >= 0) {
-  matriz[macaY][macaX] = 'H';
-}
+  
 
     printf("┌");
     for (int i = 0; i < COLUNAS; i++)
@@ -80,6 +74,7 @@ void iniciarJogo() {
     int fimDoJogo = 0;
     int direcaox = 1, direcaoy = 0;
     int macaX = -1, macaY;
+    int cont = 0;
 
     while (!sair && !fimDoJogo) {
       if (macaX < 0) {
@@ -102,6 +97,7 @@ void iniciarJogo() {
       if (x[cabeca] == macaX && y[cabeca] == macaY) {
         macaX = -1;
         printf("\a");
+        cont++;
       } else
         cauda = (cauda + 1) % 1000;
 
@@ -149,7 +145,7 @@ void iniciarJogo() {
     }
 
     if (!sair) {
-      printf("\e[%iB\e[%iC Fim do Jogo! ", LINHAS / 2, COLUNAS / 2 - 5);
+      printf("\e[%iB\e[%iC Fim do Jogo!Pontuação: %d ponto(s) ", LINHAS / 2, COLUNAS / 2 - 5,cont);
       printf("\e[%iF", LINHAS / 2);
       fflush(stdout);
       getchar();
